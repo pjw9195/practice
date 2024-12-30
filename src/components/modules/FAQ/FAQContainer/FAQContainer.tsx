@@ -1,7 +1,8 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import s from "./FAQContainer.module.scss";
 import { CategoryType } from "@/types/modules/FAQ";
 import cn from "classnames";
+import { getCategories } from "@/api/category/api";
 
 export default function FAQContainer() {
   const [categoryType, setCategoryType] = useState(CategoryType.CONSULT);
@@ -13,6 +14,14 @@ export default function FAQContainer() {
     },
     []
   );
+
+  useEffect(() => {
+    getCategories({
+      tab: CategoryType.CONSULT,
+    }).then((data) => {
+      console.log(data);
+    });
+  }, []);
 
   return (
     <div className={s.container}>

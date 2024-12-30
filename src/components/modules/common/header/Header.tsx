@@ -7,8 +7,6 @@ import cn from "classnames";
 export default function Header() {
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
     <div className={s.header}>
       <Image
