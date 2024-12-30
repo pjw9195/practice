@@ -9,6 +9,7 @@ import { validWithEmptyText } from "@/util/valid";
 import { flatten } from "@/util/func";
 import FAQ from "../FAQ/FAQ";
 import Image from "next/image";
+import FAQSearchEmpty from "../FAQSearchEmpty/FAQSearchEmpty";
 
 const DefaultFAQCategory = {
   categoryId: "ALL",
@@ -36,6 +37,7 @@ export default function FAQContents() {
 
   const {
     data: faqData,
+    isFetched,
     fetchNextPage,
     hasNextPage,
   } = useInfiniteQuery({
@@ -137,8 +139,8 @@ export default function FAQContents() {
               <Image
                 src="https://wiblebiz.kia.com/static/media/ic_clear.e7e65ee27d7e1eee6ae8.svg"
                 alt="clear"
-                width={32}
-                height={32}
+                width={24}
+                height={24}
               />
             </div>
           )}
@@ -186,9 +188,13 @@ export default function FAQContents() {
         ))}
       </div>
       <div className={s.faqList}>
-        {faqList.map((faq) => (
-          <FAQ key={faq.id} {...faq} categoryType={categoryType} />
-        ))}
+        {isFetched && faqList.length > 0 ? (
+          faqList.map((faq) => (
+            <FAQ key={faq.id} {...faq} categoryType={categoryType} />
+          ))
+        ) : (
+          <FAQSearchEmpty />
+        )}
       </div>
       {faqData?.pages[0] &&
         faqData?.pages[0].data.pageInfo.totalRecord > faqList.length && (
