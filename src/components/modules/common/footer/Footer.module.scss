@@ -1,4 +1,25 @@
 .footer {
   height: 176px;
   background-color: black;
+
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+
+  .copyWhite {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .copyGray {
+    color: #82898f;
+    font-size: 14px;
+  }
+
+  .rightArea {
+    text-align: right;
+  }
 }
