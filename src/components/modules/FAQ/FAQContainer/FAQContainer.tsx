@@ -1,12 +1,18 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import s from "./FAQContainer.module.scss";
 import { CategoryType } from "@/types/modules/FAQ";
 import cn from "classnames";
 import { getCategories } from "@/api/category/api";
+import { useQuery } from "react-query";
 
 export default function FAQContainer() {
   const [categoryType, setCategoryType] = useState(CategoryType.CONSULT);
   const [search, setSearch] = useState<string>("");
+
+  const { data } = useQuery({
+    queryKey: [categoryType],
+    queryFn: () => getCategories({ tab: categoryType }),
+  });
 
   const onSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,14 +20,6 @@ export default function FAQContainer() {
     },
     []
   );
-
-  useEffect(() => {
-    getCategories({
-      tab: CategoryType.CONSULT,
-    }).then((data) => {
-      console.log(data);
-    });
-  }, []);
 
   return (
     <div className={s.container}>
