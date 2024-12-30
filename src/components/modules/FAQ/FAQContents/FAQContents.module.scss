@@ -99,6 +99,7 @@
 
   > .faqList {
     border-top: 2px solid black;
+
     > * ~ * {
       margin-bottom: 1px solid gray;
     }

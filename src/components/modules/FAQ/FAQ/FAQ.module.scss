@@ -3,6 +3,11 @@
   align-items: center;
 
   min-height: 62px;
+  cursor: pointer;
+
+  &.unFold {
+    background-color: #f8f8f8;
+  }
 
   > .category {
     color: #697278;
@@ -13,10 +18,18 @@
     font-weight: bold;
   }
 
-  > .iconWrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  > .arrowIcon {
     margin-left: auto;
+    margin-right: 14px;
+    transition: transform 0.3s ease-in-out;
+
+    &.unFold {
+      transform: rotate(180deg);
+    }
   }
+}
+
+.answer {
+  padding: 24px;
+  font-size: 14px;
 }

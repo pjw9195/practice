@@ -146,9 +146,12 @@ export default function FAQContents() {
           <FAQ key={faq.id} {...faq} categoryType={categoryType} />
         ))}
       </div>
-      <button className={s.moreBtn} onClick={onMoreClick}>
-        +더보기
-      </button>
+      {faqData?.pages[0] &&
+        faqData?.pages[0].data.pageInfo.totalRecord > faqList.length && (
+          <button className={s.moreBtn} onClick={onMoreClick}>
+            +더보기
+          </button>
+        )}
     </div>
   );
 }
