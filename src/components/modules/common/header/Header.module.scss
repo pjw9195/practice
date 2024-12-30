@@ -1,0 +1,43 @@
+.header {
+  position: sticky;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  background-color: white;
+
+  > .logo {
+    cursor: pointer;
+  }
+
+  > .menuList {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    font-size: 18px;
+    font-weight: bold;
+    gap: 16px;
+    height: 100%;
+
+    > .menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 0 4px;
+
+      &.selected {
+        position: relative;
+        &::after {
+          position: absolute;
+          bottom: 0;
+          content: "";
+          height: 4px;
+          width: 100%;
+          background-color: #70d7bf;
+        }
+      }
+    }
+  }
+}
