@@ -1,45 +1,45 @@
 export const dataCategoryConsult = [
   {
-    categoryID: "PRODUCT",
+    categoryId: "PRODUCT",
     name: "서비스 상품",
   },
   {
-    categoryID: "COUNSELING",
+    categoryId: "COUNSELING",
     name: "도입 상담",
   },
   {
-    categoryID: "CONTRACT",
+    categoryId: "CONTRACT",
     name: "계약",
   },
 ];
 
 export const dataCategoryUsage = [
   {
-    categoryID: "SIGN_UP",
+    categoryId: "SIGN_UP",
     name: "가입문의",
   },
   {
-    categoryID: "BUSINESS",
+    categoryId: "BUSINESS",
     name: "비즈니스(업무용)",
   },
   {
-    categoryID: "ACCIDENT",
+    categoryId: "ACCIDENT",
     name: "사고/보험",
   },
   {
-    categoryID: "RESERVATION",
+    categoryId: "RESERVATION",
     name: "예약/결제",
   },
   {
-    categoryID: "VEHICLE",
+    categoryId: "VEHICLE",
     name: "차량문의",
   },
   {
-    categoryID: "REFUEL",
+    categoryId: "REFUEL",
     name: "충전",
   },
   {
-    categoryID: "COUPON",
+    categoryId: "COUPON",
     name: "쿠폰/기타",
   },
 ];

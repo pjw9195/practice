@@ -1,0 +1,22 @@
+.faq {
+  display: flex;
+  align-items: center;
+
+  min-height: 62px;
+
+  > .category {
+    color: #697278;
+    padding: 0 20px;
+  }
+
+  > .question {
+    font-weight: bold;
+  }
+
+  > .iconWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+}

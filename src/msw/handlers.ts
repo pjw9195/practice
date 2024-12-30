@@ -2,11 +2,15 @@ import { http, HttpResponse } from "msw";
 import { CategoryType } from "@/types/modules/FAQ";
 import { dataCategoryConsult, dataCategoryUsage } from "./data/category";
 import { dataFAQ } from "./data/faq";
+import { valid } from "@/util/valid";
 
 export const handlers = [
-  http.get("/api/category", async ({ params }) => {
+  http.get("/api/category", async ({ request }) => {
     let data;
-    if (params.tab === CategoryType.CONSULT) {
+    const url = new URL(request.url);
+    const tab = url.searchParams.get("tab");
+
+    if (tab === CategoryType.CONSULT) {
       data = {
         pageInfo: {
           totalRecord: dataCategoryConsult.length,
@@ -24,31 +28,52 @@ export const handlers = [
 
     return HttpResponse.json(data);
   }),
-  http.get("/api/faq", async ({ params }) => {
+  http.get("/api/faq", async ({ request }) => {
     let data = dataFAQ;
     let newData;
-    if (!params.tab) {
+
+    const url = new URL(request.url);
+    const tab = url.searchParams.get("tab");
+    const question = url.searchParams.get("question");
+    const offset = Number(url.searchParams.get("offset"));
+    const faqCategoryName = url.searchParams.get("faqCategoryName");
+
+    if (tab) {
       data = dataFAQ.filter((data) => {
-        return data.tab === params.tab;
+        return data.tab === tab;
       });
     }
 
-    if (params.question) {
-      data = dataFAQ.filter((data) => {
-        return data.answer.includes(params.question as string);
+    if (faqCategoryName) {
+      if (tab === CategoryType.USAGE) {
+        data = data.filter((data) => {
+          return data.categoryName.includes(faqCategoryName as string);
+        });
+      }
+
+      if (tab === CategoryType.CONSULT) {
+        data = data.filter((data) => {
+          return data.subCategoryName.includes(faqCategoryName as string);
+        });
+      }
+    }
+
+    if (question) {
+      data = data.filter((data) => {
+        return data.answer.includes(question as string);
       });
     }
 
-    if (params.offset && typeof params.offset === "number") {
-      newData = data.slice(params.offset * 10, (params.offset + 1) * 10 - 1);
+    if (valid(offset) && typeof offset === "number") {
+      newData = data.slice(offset * 10, (offset + 1) * 10 - 1);
     }
 
     const result = {
       pageInfo: {
         totalRecord: data.length,
-        offset: params.offset,
+        offset: offset,
       },
-      data: newData,
+      items: newData,
     };
 
     return HttpResponse.json(result);

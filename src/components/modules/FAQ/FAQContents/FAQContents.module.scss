@@ -1,0 +1,115 @@
+.contents {
+  > .categoryWrap {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 54px;
+    font-size: 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+
+    > .categoryConsult {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #cdd0d2;
+      border-right: none;
+
+      &.selected {
+        font-weight: bold;
+        background-color: black;
+        border: 1px solid black;
+        color: white;
+      }
+    }
+
+    > .categoryUsage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #cdd0d2;
+      border-left: none;
+
+      &.selected {
+        font-weight: bold;
+        background-color: black;
+        border: 1px solid black;
+        color: white;
+      }
+    }
+  }
+
+  > .inputWrap {
+    padding: 20px;
+    background-color: #f8f8f8;
+    height: 96px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    > .search {
+      width: 480px;
+      height: 56px;
+      padding-left: 16px;
+      padding-right: 94px;
+      font-size: 1rem;
+      border: 1px thin black; /* 기본적인 input 테두리 */
+
+      &:focus {
+        outline: none; /* 기본 outline 제거 */
+      }
+    }
+  }
+
+  > .searchText {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 16px 0;
+
+    > .searchCount {
+      color: #70d7bf;
+    }
+  }
+
+  > .faqCategoryList {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+
+    > .faqCategoryItem {
+      padding: 0 14px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+
+      &.selected {
+        background-color: #70d7bf;
+        border-radius: 22px;
+        color: white;
+        line-height: 1.8;
+      }
+    }
+  }
+
+  > .faqList {
+    border-top: 2px solid black;
+    > * ~ * {
+      margin-bottom: 1px solid gray;
+    }
+  }
+
+  > .moreBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    height: 56px;
+  }
+}

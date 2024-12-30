@@ -5,6 +5,7 @@ body {
 }
 button {
   background-color: transparent;
+  border: none;
 }
 
 body {

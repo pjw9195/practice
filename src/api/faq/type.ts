@@ -13,6 +13,7 @@ export interface GetFAQParams {
   tab: CategoryType;
   offset: number;
   question?: string;
+  faqCategoryName?: string;
 }
 
 export interface GetFAQRs {
