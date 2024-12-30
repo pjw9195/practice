@@ -65,7 +65,7 @@ export const handlers = [
     }
 
     if (valid(offset) && typeof offset === "number") {
-      newData = data.slice(offset * 10, (offset + 1) * 10 - 1);
+      newData = data.slice(offset * 10, (offset + 1) * 10);
     }
 
     const result = {

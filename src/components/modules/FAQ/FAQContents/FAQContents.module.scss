@@ -51,27 +51,67 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    > .search {
-      width: 480px;
-      height: 56px;
-      padding-left: 16px;
-      padding-right: 94px;
-      font-size: 1rem;
-      border: 1px thin black; /* 기본적인 input 테두리 */
 
-      &:focus {
-        outline: none; /* 기본 outline 제거 */
+    > .inputBox {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      > .search {
+        width: 480px;
+        height: 56px;
+        padding-left: 16px;
+        padding-right: 94px;
+        font-size: 1rem;
+        border: 1px thin black; /* 기본적인 input 테두리 */
+
+        &:focus {
+          outline: none; /* 기본 outline 제거 */
+        }
+      }
+
+      > .iconClearWrap {
+        position: absolute;
+        right: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 54px;
+        cursor: pointer;
+      }
+
+      > .iconSearchWrap {
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 54px;
+        height: 54px;
+        cursor: pointer;
       }
     }
   }
 
-  > .searchText {
-    font-weight: bold;
-    font-size: 20px;
-    margin: 16px 0;
+  > .searchInfo {
+    display: flex;
+    > .searchText {
+      font-weight: bold;
+      font-size: 20px;
+      margin: 16px 0;
 
-    > .searchCount {
-      color: #70d7bf;
+      > .searchCount {
+        color: #70d7bf;
+      }
+    }
+
+    > .searchRefreshWrap {
+      padding: 0 2px;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      cursor: pointer;
     }
   }
 
@@ -99,10 +139,6 @@
 
   > .faqList {
     border-top: 2px solid black;
-
-    > * ~ * {
-      margin-bottom: 1px solid gray;
-    }
   }
 
   > .moreBtn {

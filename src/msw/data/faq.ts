@@ -220,40 +220,4 @@ export const dataFAQ = [
     answer:
       "<p><span style=\"font-size: '13pt'; color: rgba(106, 122, 135, 1); word-break: keep-all;\">1회권의 경우 퇴출근, 주말 특가 상품은 대여 시작 시간이 지났더라도 당일 자정까지는 구매가 가능합니다.</span></p><p><span style=\"font-size: '13pt'; color: rgba(106, 122, 135, 1); word-break: keep-all;\">이외에 1DAY+, 구독권, 바로 퇴근하기 상품은 대여 시작 시간이 지난 경우 구매할 수 없습니다. </span></p><p><span style=\"font-size: '13pt'; color: rgba(106, 122, 135, 1); word-break: keep-all;\">*상품별 운영 정책은 상시 변경될 수 있으며, 자세한 내용은 위블 비즈 고객센터에 문의해주시기 바랍니다.</span></p>",
   },
-  {
-    tab: "USAGE",
-    id: 34,
-    categoryName: "가입문의",
-    subCategoryName: "면허",
-    question: "개명을 했습니다. 어떻게 해야 하나요?",
-    answer:
-      "<p><span style=\"font-size: '13pt'; color: rgba(106, 122, 135, 1); word-break: keep-all;\">위블 비즈를 이용 도중 개명을 하신 경우, 위블 비즈 고객센터에 회원 정보 변경 및 개명된 이름으로 재발급하신 운전면허 정보 재등록을 문의해주시기 바랍니다. 운전면허 정보 변경의 경우 위블 비즈 고객센터에서 안내 받은 메일로 면허 승인을 위한 서류 제출이 필요합니다. </span></p><p><span style=\"font-size: '13pt'; color: rgba(106, 122, 135, 1); word-break: keep-all;\">*서류 접수 후 정보 반영에 시일이 소요될 수 있습니다.</span></p>",
-  },
-  {
-    tab: "USAGE",
-    id: 35,
-    categoryName: "가입문의",
-    subCategoryName: "탈퇴",
-    question: "탈퇴 절차가 궁금해요.",
-    answer:
-      "<p><span style=\"font-size: '13pt'; color: rgba(106, 122, 135, 1); word-break: keep-all;\">아래 방법에 따라 회원 탈퇴 신청을 할 수 있습니다. </span></p><p><span style=\"font-size: '13pt'; color: rgba(106, 122, 135, 1); word-break: keep-all;\"> ▶ 회원 탈퇴 : 위블 비즈 앱 - 왼쪽 상단 메뉴 - [마이페이지] - 하단 &#39;탈퇴하려면 여기를 눌러주세요&#39; 버튼</span></p>",
-  },
-  {
-    tab: "USAGE",
-    id: 36,
-    categoryName: "가입문의",
-    subCategoryName: "탈퇴",
-    question: "탈퇴 시 보유한 쿠폰은 환불이 되나요?",
-    answer:
-      "<p><span style=\"font-size: '13pt'; color: rgba(106, 122, 135, 1); word-break: keep-all;\">회원 탈퇴 시, 보유한 쿠폰은 환불되지 않고 소멸됩니다.</span></p>",
-  },
-  {
-    tab: "USAGE",
-    id: 37,
-    categoryName: "가입문의",
-    subCategoryName: "탈퇴",
-    question: "탈퇴 후 재가입이 가능한가요?",
-    answer:
-      "<p><span style=\"font-size: '13pt'; color: rgba(106, 122, 135, 1); word-break: keep-all;\">회원 탈퇴 후에도 재가입은 가능하나, 지속적으로 가입/탈퇴를 반복할 경우 서비스 이용이 제한될 수 있습니다.</span></p>",
-  },
 ] as FAQItem[];

@@ -8,6 +8,7 @@ import { getFAQ } from "@/api/faq/api";
 import { validWithEmptyText } from "@/util/valid";
 import { flatten } from "@/util/func";
 import FAQ from "../FAQ/FAQ";
+import Image from "next/image";
 
 const DefaultFAQCategory = {
   categoryId: "ALL",
@@ -39,18 +40,20 @@ export default function FAQContents() {
     hasNextPage,
   } = useInfiniteQuery({
     queryKey: ["getFAQ", categoryType, submitSearch, selectFAQCategoryName],
-    queryFn: () =>
-      getFAQ({
+    queryFn: (params) => {
+      return getFAQ({
         question: validWithEmptyText(submitSearch) ? submitSearch : undefined,
         tab: categoryType,
         faqCategoryName:
           selectFAQCategoryName === "전체" ? undefined : selectFAQCategoryName,
-        offset: 0,
-      }),
-    getNextPageParam: (lastPage) => ({
-      ...lastPage.request,
-      offset: lastPage.data.pageInfo.offset + 1,
-    }),
+        offset: params.pageParam?.offset ?? 0,
+      });
+    },
+    getNextPageParam: (lastPage) => {
+      return {
+        offset: lastPage.data.pageInfo.offset + 1,
+      };
+    },
   });
 
   const faqList = useMemo(
@@ -82,12 +85,19 @@ export default function FAQContents() {
     }
   }, [fetchNextPage, hasNextPage]);
 
-  const handleCategory = useCallback((categoryType: CategoryType) => {
-    setCategoryType(categoryType);
+  const searchRefresh = useCallback(() => {
     setSubmitSearch("");
     setSearch("");
     setSelectFAQCategoryName("전체");
   }, []);
+
+  const handleCategory = useCallback(
+    (categoryType: CategoryType) => {
+      setCategoryType(categoryType);
+      searchRefresh();
+    },
+    [searchRefresh]
+  );
 
   return (
     <div className={s.contents}>
@@ -110,21 +120,55 @@ export default function FAQContents() {
         </div>
       </div>
       <div className={s.inputWrap}>
-        <input
-          placeholder="찾으시는 내용을 입력해 주세요"
-          className={s.search}
-          value={search}
-          onKeyUp={(e) => {
-            if (e.key === "Enter") {
-              onSearch();
-            }
-          }}
-          onChange={onSearchValueChange}
-        />
+        <div className={s.inputBox}>
+          <input
+            placeholder="찾으시는 내용을 입력해 주세요"
+            className={s.search}
+            value={search}
+            onKeyUp={(e) => {
+              if (e.key === "Enter") {
+                onSearch();
+              }
+            }}
+            onChange={onSearchValueChange}
+          />
+          {search.length > 0 && (
+            <div className={s.iconClearWrap} onClick={() => setSearch("")}>
+              <Image
+                src="https://wiblebiz.kia.com/static/media/ic_clear.e7e65ee27d7e1eee6ae8.svg"
+                alt="clear"
+                width={32}
+                height={32}
+              />
+            </div>
+          )}
+          <div className={s.iconSearchWrap} onClick={onSearch}>
+            <Image
+              src="https://wiblebiz.kia.com/static/media/ic_search.42a3e3e5ef738711754a.svg"
+              alt="search"
+              width={32}
+              height={32}
+            />
+          </div>
+        </div>
       </div>
       {validWithEmptyText(submitSearch) && (
-        <div className={s.searchText}>
-          검색결과 총 <span className={s.searchCount}></span>건
+        <div className={s.searchInfo}>
+          <div className={s.searchText}>
+            검색결과 총 <span className={s.searchCount}>{faqList.length}</span>
+            건
+          </div>
+          <div className={s.searchRefreshWrap} onClick={() => searchRefresh()}>
+            <Image
+              alt="search_refresh"
+              src={
+                "https://wiblebiz.kia.com/static/media/ic_init.9a0717967db54ff5efe7.svg"
+              }
+              width={24}
+              height={24}
+            />
+            <span className="refresh">검색초기화</span>
+          </div>
         </div>
       )}
 
