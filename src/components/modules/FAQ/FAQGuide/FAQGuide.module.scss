@@ -33,6 +33,36 @@
   }
 }
 
+.processArea {
+  display: flex;
+  align-items: center;
+  height: 156px;
+
+  .process {
+    position: relative;
+    height: 100%;
+    padding: 0 24px;
+
+    > .title {
+      margin-top: 8px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    > .description {
+      margin-top: 8px;
+      color: #37434c;
+      overflow-wrap: break-word;
+    }
+
+    > .arrowIcon {
+      position: absolute;
+      top: 64px;
+      right: -12px;
+    }
+  }
+}
+
 .wibleMeetBox {
   margin-top: 48px;
   padding: 32px;

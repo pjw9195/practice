@@ -41,10 +41,90 @@ export default function FAQGuide() {
         <div></div>
       </div>
       <div className={s.subTitle}>이용 프로세스 안내</div>
-      <div>
-        <Image />
-        <div>1. 문의 등록</div>
-        <div>상담 문의를 등록해 주시면, 담당자가 맞춤형 상담을 제공합니다.</div>
+      <div className={s.processArea}>
+        <div className={s.process}>
+          <Image
+            src={
+              "https://wiblebiz.kia.com/static/media/ic_process01.846102db750160d46113.svg"
+            }
+            alt="register"
+            width={48}
+            height={48}
+          />
+          <div className={s.title}>1. 문의 등록</div>
+          <div className={s.description}>
+            상담 문의를 등록해 주시면, 담당자가 맞춤형 상담을 제공합니다.
+          </div>
+          <Image
+            className={s.arrowIcon}
+            src={
+              "https://wiblebiz.kia.com/static/media/ic_step_arrow.02faa866c421e8f34477.svg"
+            }
+            width={24}
+            height={24}
+            alt="arrow_icon"
+          />
+        </div>
+        <div className={s.process}>
+          <Image
+            src={
+              "https://wiblebiz.kia.com/static/media/ic_process02.200616d9976626829e54.svg"
+            }
+            alt="manage_setting"
+            width={48}
+            height={48}
+          />
+          <div className={s.title}>2. 관리자 설정</div>
+          <div className={s.description}>
+            관리자 Web 접속 후 결제방식 및 회사정보를 설정합니다.
+          </div>
+          <Image
+            className={s.arrowIcon}
+            src={
+              "https://wiblebiz.kia.com/static/media/ic_step_arrow.02faa866c421e8f34477.svg"
+            }
+            width={24}
+            height={24}
+            alt="arrow_icon"
+          />
+        </div>
+        <div className={s.process}>
+          <Image
+            src={
+              "https://wiblebiz.kia.com/static/media/ic_process03.292a6f8c9d4e9ae4c7b9.svg"
+            }
+            alt="employee_join"
+            width={48}
+            height={48}
+          />
+          <div className={s.title}>3. 임직원 가입</div>
+          <div className={s.description}>
+            사용자 App에서 회원가입 후 소속 회사 인증을 진행합니다.
+          </div>
+          <Image
+            className={s.arrowIcon}
+            src={
+              "https://wiblebiz.kia.com/static/media/ic_step_arrow.02faa866c421e8f34477.svg"
+            }
+            width={24}
+            height={24}
+            alt="arrow_icon"
+          />
+        </div>
+        <div className={s.process}>
+          <Image
+            src={
+              "https://wiblebiz.kia.com/static/media/ic_process04.6bcc2c45f287d0c8226a.svg"
+            }
+            alt="use_service"
+            width={48}
+            height={48}
+          />
+          <div className={s.title}>4. 서비스 이용</div>
+          <div className={s.description}>
+            사용자 App에서 차량 예약을 하고 위블존에서 바로 이용하세요!
+          </div>
+        </div>
       </div>
       <div className={s.wibleMeetBox}>
         <div className={s.wibleText}>
